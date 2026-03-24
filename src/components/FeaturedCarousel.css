@@ -1,0 +1,244 @@
+.featured-carousel-section {
+  position: relative;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 0 64px;
+  overflow: hidden;
+}
+
+.carousel-label {
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sparkle {
+  font-size: 1.2rem;
+}
+
+.coverflow-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 560px;
+  perspective: 1200px;
+}
+
+.coverflow-scene {
+  position: relative;
+  width: 360px;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coverflow-card {
+  position: absolute;
+  width: 100%;
+  height: 520px;
+  cursor: pointer;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.coverflow-card-inner {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08); /* Soft premium shadow */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+}
+
+.coverflow-card.center .coverflow-card-inner {
+  box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+  cursor: default;
+}
+
+.coverflow-image-wrap {
+  height: 300px;
+  flex-shrink: 0;
+  background: var(--bg-tertiary);
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coverflow-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.coverflow-card.center:hover .coverflow-image-wrap img {
+  transform: scale(1.05);
+}
+
+.coverflow-info {
+  padding: 20px 24px;
+  background: #ffffff;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  flex: 1;
+}
+
+.coverflow-brand {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+
+.coverflow-info h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.coverflow-specs {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.8;
+  margin-top: -8px;
+}
+
+.coverflow-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.coverflow-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.coverflow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: var(--text-primary);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.coverflow-btn:hover {
+  background: var(--accent-hover);
+  transform: scale(1.02);
+}
+
+.coverflow-nav-btn {
+  position: absolute;
+  z-index: 10;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(4px);
+}
+
+.coverflow-nav-btn:hover {
+  background: #fff;
+  color: var(--accent);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.coverflow-nav-btn.prev {
+  left: 24px;
+}
+
+.coverflow-nav-btn.next {
+  right: 24px;
+}
+
+@media (max-width: 768px) {
+  .coverflow-container {
+    height: 520px;
+    perspective: 800px;
+  }
+  .coverflow-scene {
+    width: 78vw;
+    max-width: 290px;
+  }
+  .coverflow-card {
+    height: 460px;
+  }
+  .coverflow-card-inner {
+    border-radius: var(--radius-lg);
+  }
+  .coverflow-image-wrap {
+    height: 220px;
+    padding: 16px;
+  }
+  .coverflow-info {
+    padding: 16px;
+    gap: 6px;
+  }
+  .coverflow-brand {
+    font-size: 0.7rem;
+  }
+  .coverflow-info h4 {
+    font-size: 1.05rem;
+  }
+  .coverflow-specs {
+    font-size: 0.75rem;
+  }
+  .coverflow-price {
+    font-size: 1.1rem;
+  }
+  .coverflow-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  .coverflow-nav-btn {
+    display: none; /* Rely on clicking cards for mobile */
+  }
+}
