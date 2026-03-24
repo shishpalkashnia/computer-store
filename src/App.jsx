@@ -9,12 +9,14 @@ import ProductDetail from './pages/ProductDetail';
 import AdminLogin from './pages/admin/AdminLogin';
 import Dashboard from './pages/admin/Dashboard';
 import ProductForm from './pages/admin/ProductForm';
+import ScrollToTop from './components/ScrollToTop';
 import './index.css';
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <div className="ambient-bg" />
         <Navbar />
         <main style={{ flex: 1, position: 'relative', zIndex: 1 }}>
