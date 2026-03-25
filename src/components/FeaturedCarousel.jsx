@@ -9,7 +9,34 @@ export default function FeaturedCarousel() {
   const { featuredProducts, loading } = useFeaturedProducts();
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  if (loading || featuredProducts.length === 0) {
+  if (loading) {
+    return (
+      <div className="featured-carousel-section">
+        <div className="carousel-label">
+          <span className="sparkle">✨</span> Featured Collection
+        </div>
+        <div className="coverflow-container">
+          <div className="coverflow-scene">
+            <div className="coverflow-card center">
+              <div className="coverflow-card-inner">
+                <div className="coverflow-image-wrap">
+                  <div className="skeleton" style={{ width: '100%', height: '100%', borderRadius: '12px' }} />
+                </div>
+                <div className="coverflow-info">
+                  <div className="skeleton" style={{ height: 12, width: '40%' }} />
+                  <div className="skeleton" style={{ height: 18, width: '75%' }} />
+                  <div className="skeleton" style={{ height: 12, width: '60%' }} />
+                  <div className="skeleton" style={{ height: 20, width: '50%', marginTop: 8 }} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (featuredProducts.length === 0) {
     return null;
   }
 
